@@ -18,5 +18,5 @@ Composta por:
 * Marcos Dassie
 
 ## *IMPORTANTE*
-*Esta permitido apenas acrescentar códigos aos arquivos presente neste projeto apenas pela equipe citada anteriormente.
-Não altere ou apague os códigos já existentes, se for fazer isto, avise e confirme com a equipe.*
+*Esta permitido **apenas acrescentar** códigos aos arquivos presente neste projeto **apenas pela equipe** citada anteriormente.
+**Não altere ou apague** os códigos já existentes, se for fazer isto, avise e confirme com a equipe.*
