@@ -1,10 +1,16 @@
-﻿using ChatBot.Serialization;
+﻿#load "BasicForm.csx"
+
+
+using ChatBot.Serialization;
 using ChatBot.Services;
+using Microsoft.Bot.Builder.Dialogs;
 using Microsoft.Bot.Connector;
 using System;
 using System.Threading.Tasks;
 using System.Web.Http;
 
+
+ 
 //IMPORTANTE
 //Esta permitido neste arquivo apenas acrescentar código.
 //Não altere ou apague os códigos já existentes, se for fazer isto, avise e confirme com sua equipe.
@@ -86,6 +92,28 @@ namespace ChatBot.Controllers
 
             }
             return resposta.Text;
+        }
+
+        private async Task FormComplete(IDialogContext context, IAwaitable<BasicForm> result)
+        {
+            try
+            {
+                var form = await result;
+                if (form != null)
+                {
+                    await context.PostAsync("Thanks for completing the form! Just type anything to restart it.");
+                }
+                else
+                {
+                    await context.PostAsync("Form returned empty response! Type anything to restart it.");
+                }
+            }
+            catch (OperationCanceledException)
+            {
+                await context.PostAsync("You canceled the form! Type anything to restart it.");
+            }
+
+            context.Wait(MessageReceivedAsync);
         }
 
     }
